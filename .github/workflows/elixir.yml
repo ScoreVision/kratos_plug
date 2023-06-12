@@ -34,9 +34,7 @@ jobs:
       with:
         path: deps
         key: ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}
-        restore-keys:
-          - ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}
-          - ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix
+        restore-keys: ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix
     - name: Install dependencies
       run: mix deps.get
     - name: Run tests
