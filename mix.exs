@@ -6,14 +6,9 @@ defmodule KratosPlug.MixProject do
       app: :kratos_plug,
       version: "0.1.0",
       elixir: "~> 1.10",
-      licenses: ["MIT"],
+      description: "Provides authentication to Plug applications by integrating with Ory Kratos.",
       source_url: "https://github.com/ScoreVision/kratos_plug",
-      links: %{
-        "GitHub": "https://github.com/ScoreVision/kratos_plug",
-        "Ory Kratos": "https://github.com/ory/kratos",
-        "Ory": "https://www.ory.sh/",
-        "ScoreVision": "https://www.scorevision.com/"
-      },
+      package: package(),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       docs: [
@@ -30,9 +25,9 @@ defmodule KratosPlug.MixProject do
             KratosPlug.Plugs.KratosSession
           ],
           "Data types": [KratosPlug.Identifiers, KratosPlug.Config],
-          "Behaviours": [KratosPlug.KratosClient],
+          Behaviours: [KratosPlug.KratosClient],
           "Client adapters": [KratosPlug.KratosClient.TeslaAdapter],
-          "Testing": [KratosPlug.IdentifiersMock, KratosPlug.KratosClient.TeslaAdapterMock]
+          Testing: [KratosPlug.IdentifiersMock, KratosPlug.KratosClient.TeslaAdapterMock]
         ]
       ]
     ]
@@ -58,5 +53,18 @@ defmodule KratosPlug.MixProject do
       # docs
       {:ex_doc, "~> 0.27", only: :dev, runtime: false}
     ]
+  end
+
+  defp package do
+    %{
+      licenses: ["MIT"],
+      links: %{
+        GitHub: "https://github.com/ScoreVision/kratos_plug",
+        "Ory Kratos": "https://github.com/ory/kratos",
+        Ory: "https://www.ory.sh/",
+        ScoreVision: "https://www.scorevision.com/"
+      },
+      maintainers: ["Zach Norris"]
+    }
   end
 end
