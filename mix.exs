@@ -64,7 +64,8 @@ defmodule KratosPlug.MixProject do
         Ory: "https://www.ory.sh/",
         ScoreVision: "https://www.scorevision.com/"
       },
-      maintainers: ["Zach Norris"]
+      maintainers: ["Zach Norris"],
+      files: ~w(lib .formatter.exs mix.exs README.md CHANGELOG.md)
     }
   end
 end
