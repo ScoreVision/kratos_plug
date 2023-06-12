@@ -15,24 +15,28 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
-    name: Build and test
+  test:
+    name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        otp: ['25.2.3']
+        elixir: ['1.14.4']
     steps:
     - uses: actions/checkout@v3
     - name: Set up Elixir
-      uses: erlef/setup-beam@c2e02f777c158310fc6d3d4e11b36a52d2d52db8
+      uses: erlef/setup-beam@v1.15.4
       with:
-        elixir-version: '1.14.4' # Define the elixir version [required]
-        otp-version: '25.2.3' # Define the OTP version [required]
+        elixir-version: ${{matrix.elixir}}
+        otp-version: ${{matrix.otp}}
     - name: Restore dependencies cache
       uses: actions/cache@v3
       with:
         path: deps
-        key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-        restore-keys: ${{ runner.os }}-mix-
+        key: ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}
+        restore-keys:
+          - ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}
+          - ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix
     - name: Install dependencies
       run: mix deps.get
     - name: Run tests

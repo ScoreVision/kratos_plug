@@ -1,0 +1,33 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Hex CI
+
+on:
+  push:
+    tags: 
+      - '*.*.*'
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Restore dependencies cache
+        uses: actions/cache@v3
+        with:
+          path: deps
+          key: ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}
+          restore-keys:
+            - ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}
+            - ${{ hashFiles('**/mix.lock') }}-${{ runner.os }}-mix
+      - name: Publish to Hex.pm
+        uses: erlangpack/github-action@v3
+        env:
+          HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
