@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [0.1.0]
+
+Initial release.
+
 ### Added
 
-- 
+- `KratosPlug`
+- `KratosPlug.Config`
+- `KratosPlug.Defaults`
+- `KratosPlug.Identifiers`
+- `KratosPlug.IdentifiersMock`
+- `KratosPlug.KratosClient`
+- `KratosPlug.KratosClient.TeslaAdapter`
+- `KratosPlug.KratosClient.TeslaAdapterMock`
+- `KratosPlug.Plugs.EnsureAuthenticated`
+- `KratosPlug.Plugs.KratosNativePipeline`
+- `KratosPlug.Plugs.KratosSession`
