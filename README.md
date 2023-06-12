@@ -2,6 +2,8 @@
 
 Provides authentication to [Plug](https://github.com/elixir-plug/plug) applications by integrating with [Ory Kratos](https://github.com/ory/kratos).
 
+Read the docs at [hexdocs.pm/kratos_plug](https://hexdocs.pm/kratos_plug/).
+
 KratosPlug is a composable library for extracting session identifiers from the request, and exchanging them for a kratos session. KratosPlug also provides functions like `KratosPlug.session_valid?/1` for working with sessions. _This is not an official [Ory Corp](https://ory.sh) project._
 
 ## What is Kratos?
@@ -64,9 +66,7 @@ Ory proxy and JSON Web Tokens (JWT) are unsupported.
 
 ## Documentation
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/kratos_plug>.
+API documentation can be found at [hexdocs.pm/kratos_plug](https://hexdocs.pm/kratos_plug/).
 
 ## Versioning
 
