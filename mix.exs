@@ -6,6 +6,14 @@ defmodule KratosPlug.MixProject do
       app: :kratos_plug,
       version: "0.1.0",
       elixir: "~> 1.10",
+      licenses: ["MIT"],
+      source_url: "https://github.com/ScoreVision/kratos_plug",
+      links: %{
+        "GitHub": "https://github.com/ScoreVision/kratos_plug",
+        "Ory Kratos": "https://github.com/ory/kratos",
+        "Ory": "https://www.ory.sh/",
+        "ScoreVision": "https://www.scorevision.com/"
+      },
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       docs: [
