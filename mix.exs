@@ -4,7 +4,7 @@ defmodule KratosPlug.MixProject do
   def project do
     [
       app: :kratos_plug,
-      version: "0.1.0",
+      version: "0.2.0",
       elixir: "~> 1.10",
       description: "Provides authentication to Plug applications by integrating with Ory Kratos.",
       source_url: "https://github.com/ScoreVision/kratos_plug",
