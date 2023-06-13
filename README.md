@@ -36,7 +36,7 @@ end
 defmodule MyRouter do
   use Plug.Router
 
-  alias KratosPlug.Plugs.KratosNativePipeline, [{:kratos_base_url, "http://localhost:4433"}]
+  plug KratosPlug.Plugs.KratosNativePipeline, [{:kratos_base_url, "http://localhost:4433"}]
   plug :match
   plug :dispatch
 
