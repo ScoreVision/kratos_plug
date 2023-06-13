@@ -19,6 +19,15 @@ defmodule KratosPlug do
   end
 
   @doc """
+  Returns the kratos session as a map.
+  """
+  @doc since: "0.2.0"
+  @spec get_session(Plug.Conn.t()) :: map()
+  def get_session(conn) do
+    Map.get(conn.assigns, assign_key(), %{})
+  end
+
+  @doc """
   Returns true when the conn has an active Kratos session.
   """
   @doc since: "0.1.0"
